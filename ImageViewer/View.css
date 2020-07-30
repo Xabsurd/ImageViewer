@@ -1,0 +1,392 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    background: rgba(255, 255, 255, 0.00);
+    border: none;
+    -webkit-user-drag: none;
+}
+
+@font-face {
+    font-family: myfont;
+    src: url(font/DroidSansMonoPy.ttf);
+}
+
+@font-face {
+    font-family: riotfont;
+    src: url('font/713e8042-cdd9-4f87-b79b-59bb8e43daca.ttf') format('truetype');
+}
+
+.resizeB, .resizeL, .resizeR, .resizeT {
+    position: fixed;
+    background: rgba(0, 0, 0, 0);
+    z-index: 10000;
+    -webkit-app-region: no-drag;
+}
+
+.resizeL {
+    top: 6px;
+    left: 0px;
+    height: calc(100% - 6px);
+    width: 6px;
+    cursor: e-resize;
+}
+
+.resizeR {
+    top: 6px;
+    right: 0px;
+    height: calc(100% - 6px);
+    width: 6px;
+    cursor: e-resize;
+}
+
+.resizeB {
+    bottom: 0px;
+    left: 6px;
+    width: calc(100% - 6px);
+    height: 6px;
+    cursor: n-resize;
+}
+
+.resizeT {
+    top: 0px;
+    left: 6px;
+    width: calc(100% - 6px);
+    height: 6px;
+    cursor: n-resize;
+}
+
+.resizeLT, .resizeLB, .resizeRT, .resizeRB {
+    position: fixed;
+    background: rgba(0, 0, 0, 0);
+    z-index: 10000;
+    -webkit-app-region: no-drag;
+    width: 6px;
+    height: 6px;
+}
+
+.resizeLT {
+    left: 0;
+    top: 0;
+    cursor: nw-resize;
+}
+
+.resizeLB {
+    left: 0;
+    bottom: 0;
+    cursor: sw-resize;
+}
+
+.resizeRT {
+    right: 0;
+    top: 0;
+    cursor: ne-resize;
+}
+
+.resizeRB {
+    right: 0;
+    bottom: 0;
+    cursor: se-resize
+}
+
+.top {
+    width: 100%;
+    height: 30px;
+    background: #696969;
+    position: absolute;
+    top: 0;
+    -webkit-app-region: drag;
+    z-index: 10000;
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+    z-index: 100;
+}
+
+    .top .xs, .yc {
+        -webkit-app-region: no-drag;
+        float: left;
+        margin: 0 10px;
+    }
+
+.ShowUrl {
+    float: left;
+    margin: 0 10px;
+    overflow: hidden;
+    width: calc(100% - 430px);
+    height: 30px;
+}
+
+    .ShowUrl div {
+        position: absolute;
+        top: 0px;
+        right: 130px;
+        width: 20px;
+        height: 100%;
+        box-shadow: -15px 0px 20px -5px #696969 inset;
+        /*background:#fff;*/
+    }
+
+.top .Min, .Max, .Close {
+    float: right;
+    width: 40px;
+    height: 30px;
+    -webkit-app-region: no-drag;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 20px;
+    -webkit-mask-position: 5px 4px;
+    overflow:hidden;
+}
+svg {
+    display:block;
+    margin: 0 auto;
+    justify-content: center;
+    fill: #fff;
+    height:30px;
+    width:30px;
+}
+
+     .Max:hover,.Min:hover {
+        background:#939393;
+    }
+.Close:hover {
+    background: #ff0000;
+}
+.isMany {
+    float: left;
+    -webkit-app-region: no-drag;
+    margin-left: 10px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.00);
+    overflow: hidden;
+    -moz-user-select: none; /* Firefox私有属性 */
+    -webkit-user-select: none; /* WebKit内核私有属性 */
+    -ms-user-select: none; /* IE私有属性(IE10及以后) */
+    -khtml-user-select: none; /* KHTML内核私有属性 */
+    -o-user-select: none; /* Opera私有属性 */
+    user-select: none; /* CSS3属性 */
+    font-family: riotfont;
+    -webkit-app-region: drag;
+    min-height: 300px;
+    min-width: 500px;
+}
+
+.ViewBox {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-size: 100% auto;
+    -webkit-app-region: no-drag;
+}
+
+.zoomview {
+    width: 100px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.30);
+    color: #ffffff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: -25px;
+    margin-left: -50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.bottom {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0.45);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 50px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+    .bottom div {
+        width:100px;
+        float: left;
+        color: #fff;
+        margin-left: 10px;
+        -webkit-app-region: no-drag;
+        width: 100px;
+    }
+
+
+.ShowMinImg {
+    height: 100px;
+    background: #000;
+    position: fixed;
+    bottom: 50px;
+    display: flex;
+    -webkit-user-drag: none;
+}
+
+    .ShowMinImg div {
+        height: 100%;
+        width: auto;
+        float: left;
+    }
+    /*.ShowMinImg img:hover {
+        height: 96%;
+        border: solid 1px #fff;
+        outline: solid 1px #000;
+    }*/
+
+    .ShowMinImg img {
+        height: 100%;
+        width: auto;
+        float: left;
+        flex: 1;
+        -webkit-user-drag: none;
+    }
+
+.iszoom {
+    height: 100%;
+    width: 100px;
+    color: #fff;
+}
+
+.Turnleft {
+    height: 100%;
+    width: 100px;
+    color: #fff;
+}
+
+.tleft {
+    transform: rotate(90deg);
+}
+
+#direction {
+    height: 50px;
+    width: 500px;
+    position: fixed;
+    font-size: 20px;
+    top: 0px;
+    left: 0px;
+}
+
+.ImgUp {
+    height: 100%;
+    width: 100px;
+    color: #fff;
+}
+
+.rightMain, .SrotList, .UpOrDown {
+    width: 200px;
+    height: auto;
+    position: fixed;
+    font-family: riotfont;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 950;
+    left: 100px;
+    top: 100px;
+    border: solid 1px rgba(0, 0, 0, 0.20);
+    border-top: none;
+    background: #fff;
+    display: none;
+}
+
+    .rightMain div, .SrotList div, .UpOrDown div {
+        width: 100%;
+        height: 30px;
+        border-top: solid 1px rgba(0, 0, 0, 0.20);
+    }
+
+        .UpOrDown div:hover {
+            background: #d8d8d8;
+        }
+
+.SrotList {
+    left: 300px;
+}
+
+.UpOrDown {
+    left: 500px;
+}
+
+.ShowAllImg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.99);
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom:10px;
+}
+
+    .ShowAllImg div {
+        height:100px;
+        margin-top:10px;
+        width: calc(100vw/var(--num));
+        overflow:hidden;
+    }
+
+        .ShowAllImg div img {
+            display: block;
+            position: relative;
+            left: 50%;
+            top:0px;
+            transform: translate(-50%, 0);
+            /*animation: imoves 1s forwards;*/
+        }
+            .ShowAllImg div img:hover {
+                /*animation: moves 1s forwards;*/
+            }
+        root{
+            --num:1;
+        }
+@keyframes moves {
+    0% {
+        margin-top: 0px;
+        height:100px;
+        
+    }
+
+    100% {
+        margin-top: -20px;
+        height: 140px;
+    }
+}
+@keyframes imoves {
+    0% {
+        margin-top: -20px;
+        height: 140px;
+    }
+
+    100% {
+        margin-top: 0px;
+        height: 100px;
+    }
+}
+/*@media screen and (max-width: 1199px)and (min-width:900px) {
+    .ShowAllImg div {
+        
+    }
+}
+
+@media screen and (max-width:899px)and (min-width:200px) {
+    .ShowAllImg div {
+        width: 20vw;
+    }
+}*/

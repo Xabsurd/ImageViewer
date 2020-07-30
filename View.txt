@@ -1,0 +1,92 @@
+﻿
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="View.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="top">
+        <!--n-ui-command="close"-->
+        <div class="Close" id="dMove">
+            <svg xmlns="http://www.w3.org/2000/svg">
+                <line x1="5" y1="5" x2="25" y2="25"
+                      style="stroke:#fff;stroke-width:2" />
+                <line x1="25" y1="5" x2="5" y2="25"
+                      style="stroke:#fff;stroke-width:2" />
+            </svg>
+        </div>
+        <div class="Max" id="dMove">
+            <svg  xmlns="http://www.w3.org/2000/svg">
+                <line x1="5" y1="6" x2="25" y2="6"
+                      style="stroke:#fff;stroke-width:2" />
+                <line x1="24" y1="6" x2="24" y2="24"
+                      style="stroke:#fff;stroke-width:2" />
+                <line x1="25" y1="24" x2="6" y2="24"
+                      style="stroke:#fff;stroke-width:2" />
+                <line x1="6" y1="25" x2="6" y2="6"
+                      style="stroke:#fff;stroke-width:2" />
+            </svg>
+        </div>
+        <div class="Min" id="dMove">
+            <svg xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="25" y2="15"
+      style="stroke:#fff;stroke-width:2" /></svg>
+        </div>
+        <div class="xs" id="dMove">显示</div>
+        <div class="yc" id="dMove">隐藏</div>
+
+        <div class="isMany" id="dMove">点击允许多窗口（重启生效）</div>
+        <div class="ShowUrl"><div></div></div>
+    </div>
+    <div class="resizeL"></div>
+    <div class="resizeT"></div>
+    <div class="resizeB"></div>
+    <div class="resizeR"></div>
+    <div class="resizeLT"></div>
+    <div class="resizeRT"></div>
+    <div class="resizeLB"></div>
+    <div class="resizeRB"></div>
+    <img class="ViewBox" src="" ondragstart="return false" style="width:100%;height:100%" />
+    <div class="zoomview">100%</div>
+    <div class="ShowMinImg" id="dMove"></div>
+    <div class="bottom">
+        <div class="iszoom" id="dMove">实际尺寸</div>
+        <div class="Turnleft" id="dMove">左旋转</div>
+        <div class="TurnRight" id="dMove">右旋转</div>
+        <div class="ImgUp" id="dMove">上一张</div>
+        <div class="ImgDown" id="dMove">下一张</div>
+    </div>
+    <div class="rightMain" id="dMove">
+        <div class="ChangeSrot">排序方式</div>
+        <div class="rightcLose" n-ui-command="close">关闭</div>
+    </div>
+    <div class="SrotList" id="dMove">
+        <div class="SortName">名称</div>
+        <div class="SortTime">时间</div>
+        <div class="SortSize">大小</div>
+        <!--<video controls="controls" src="F:\%e4%bb%a3%e7%a0%81\DXForm\NANUI\1022_c7abdd68b80f4889b215dabcaa4403c2.f0.mp4"></video>-->
+    </div>
+    <div class="UpOrDown" id="dMove">
+        <div class="SortUp">升序</div>
+        <div class="SortDown">降序</div>
+    </div>
+    <!--<div class="ShowAllImg"></div>-->
+</body>
+</html>
+
+<script src="jquery-3.4.1.min.js"></script>
+<script src="jquery.mousewheel.min.js"></script>
+<script src="jquery.mousewheel.js"></script>
+<script src="View.js"></script>
+
+<script type="text/javascript">
+
+                                //$(function () {
+                                //    try {
+                                //        testb.showTest('Message from JS');
+                                //    } catch (e) {
+                                //        alert(e)
+                                //    }
+
+                                //})
+</script>

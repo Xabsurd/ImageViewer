@@ -1,0 +1,20 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="WpfApp1.Window1"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="text" HorizontalAlignment="Left" VerticalAlignment="Top" Width="751" Height="72" Margin="10,193,0,0"></TextBox>
+        <ComboBox x:Name="cmb" Margin="79,10,125,365" >
+            <System:String>你好</System:String>
+            <System:String>你asda好</System:String>
+            <System:String>你好1111</System:String>
+            <System:String>你好2222</System:String>
+        </ComboBox>
+        <Button HorizontalAlignment="Center" Margin="105,113,330,272" Content="OK" Width="357"/>
+    </Grid>
+</Window>
