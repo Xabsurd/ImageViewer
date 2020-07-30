@@ -860,7 +860,6 @@ function changeZoom() {
             inSize(200);
         }
     } else {
-        console.log(win.height() - image.height);
         view.animate({ width: image.width, height: image.height, top: (win.height() - image.height) / 2, left: (win.width() - image.width) / 2 }, 200);
         isZoom = true;
         zoom = 1;
