@@ -113,7 +113,7 @@ function LoadedImg() {
 ////修改图片
 function ChangeImage(url) {
     url = url.replaceAll("#", "%23");
-    console.log(url);
+    //console.log(url);
     imageUrl = url;
     isdrop = true;
     image.src = imageUrl;
@@ -356,7 +356,7 @@ function AddImg(url) {
     TestImg.src = url;
     TestImg.onload = function () {
         FindObj(urlArray, url, function (v) {
-            console.log(v);
+            //console.log(v);
             if (v < 0) {
                 //ChangeImage(url);
                 //FindObj(urlArray, url);
