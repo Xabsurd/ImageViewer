@@ -60,6 +60,7 @@ namespace ImageViewer
         }
         public Main(string url)
         {
+            //new Form1().Show();
             var dpi = 96f / CreateGraphics().DpiX;
             Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);
             InitializeComponent();
@@ -82,7 +83,7 @@ namespace ImageViewer
             cwb.DragHandler = new DragHandler(this);
             cwb.MenuHandler = new MenuHandler();
             cwb.KeyboardHandler = new KeyBoardHander(this);
-           
+
             this.Controls.Add(cwb);
             this.AllowDrop = true;
             this.DoubleBuffered = true;
@@ -94,7 +95,7 @@ namespace ImageViewer
                 if (this.WindowState == FormWindowState.Maximized)
                 {
                     cwb.Dock = DockStyle.None;
-                    cwb.Size = new Size(this.Size.Width - (int)(16.0/ dpi), this.Size.Height - (int)(16.0 / dpi));
+                    cwb.Size = new Size(this.Size.Width - (int)(16.0 / dpi), this.Size.Height - (int)(16.0 / dpi));
                     cwb.Location = new Point(0, (int)(8.0 / dpi));
                 }
                 else
@@ -243,6 +244,10 @@ namespace ImageViewer
                 {
                     if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "ImageTum/" + name.Replace(@"\", @"-").Replace(":", "")))
                     {
+                        if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "ImageTum"))
+                        {
+                            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "ImageTum");
+                        }
                         try
                         {
                             //保存压缩图片
@@ -305,9 +310,9 @@ namespace ImageViewer
             //发送消息
             public void sendMove(int type)
             {
-                if ( type == 1)//main.WindowState != FormWindowState.Maximized || 
+                if (type == 1)//main.WindowState != FormWindowState.Maximized || 
                 {
-                    
+
                     switch (type)
                     {
                         case 1:
@@ -589,7 +594,7 @@ namespace ImageViewer
                         //t.rect0.bottom = t.rect0.bottom ;
                     }
                     break;
-               
+
                 default:
                     break;
             }

@@ -44,10 +44,10 @@ String.prototype.replaceAll = function (FindText, RepText) {
 //}
 //数组排序
 function downName(b, a) {
-    return a.Name.localeCompare(b.Name);
+    return sortName(a.Name, b.Name);//a.Name.localeCompare(b.Name);
 }
 function upName(a, b) {
-    return a.Name.localeCompare(b.Name);
+    return sortName(a.Name, b.Name);
 }
 function downDate(a, b) {
     return Date.parse(b.CreateTime) - Date.parse(a.CreateTime);
@@ -60,6 +60,47 @@ function downSize(a, b) {
 }
 function upSize(b, a) {
     return b.Size - a.Size;
+}
+function sortName(x,y) {
+    if (x == null || y == null)
+        throw new ArgumentException("Parameters can't be null");
+    var arrx = x.split('');
+    var arry = y.split('');
+    var i = 0, j = 0;
+    while (i < arrx.length && j < arry.length) {
+        if (!isNaN(arrx[i]) && !isNaN(arry[j])) {
+            var s1 = "", s2 = "";
+            while (i < arrx.length && !isNaN(arrx[i])) {
+                s1 += arrx[i];
+                i++;
+            }
+            while (j < arry.length && !isNaN(arry[j])) {
+                s2 += arry[j];
+                j++;
+            }
+            if (Number(s1) > Number(s2)) {
+                return 1;
+            }
+            if (Number(s1) < Number(s2)) {
+                return -1;
+            }
+        } else {
+            if (arrx[i] > arry[j]) {
+                return 1;
+            }
+            if (arrx[i] < arry[j]) {
+                return -1;
+            }
+            i++;
+            j++;
+        }
+    }
+    if (arrx.length == arry.length) {
+        return 0;
+    }
+    else {
+        return arrx.length > arry.length ? 1 : -1;
+    }
 }
 /**获取图片连接数组
  * 
@@ -550,14 +591,14 @@ $(".SortSize").mousemove(function () {
 $(".SortUp").click(function () {
     switch (whatSort) {
         case 0:
-            //urlArray.sort(upName);
-            if (isUpName) {
-                urlArray = OurlArray;
-            } else {
-                urlArray = OurlArray;
-                urlArray.reverse();
-                isUpName = true;
-            }
+            urlArray.sort(upName);
+            //if (isUpName) {
+            //    urlArray = OurlArray;
+            //} else {
+            //    urlArray = OurlArray;
+            //    urlArray.reverse();
+            //    isUpName = true;
+            //}
             main.changeSortType(1);
 
             break;
@@ -578,16 +619,16 @@ $(".SortUp").click(function () {
 $(".SortDown").click(function () {
     switch (whatSort) {
         case 0:
-            //urlArray.sort(downName);
+            urlArray.sort(downName);
 
-            if (isUpName) {
-                urlArray = OurlArray;
-                urlArray.reverse();
-                isUpName = false;
+            //if (isUpName) {
+            //    urlArray = OurlArray;
+            //    urlArray.reverse();
+            //    isUpName = false;
 
-            } else {
-                urlArray = OurlArray;
-            }
+            //} else {
+            //    urlArray = OurlArray;
+            //}
             main.changeSortType(2);
             break;
         case 1:
